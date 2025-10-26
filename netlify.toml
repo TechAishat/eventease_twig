@@ -1,15 +1,15 @@
 [build]
-  command = "composer install --no-dev"
+  command = "composer install --no-dev && php build.php"
   publish = "public"
-  functions = "netlify/functions"
 
 [build.environment]
+  NODE_VERSION = "18"
   PHP_VERSION = "8.1"
 
-# Handle all requests with index.php
+# Handle client-side routing
 [[redirects]]
   from = "/*"
-  to = "/index.php"
+  to = "/index.html"
   status = 200
 
 # Security headers
@@ -27,8 +27,8 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Disable caching for PHP files
+# Disable caching for HTML files
 [[headers]]
-  for = "/*.php"
+  for = "/*.html"
   [headers.values]
     Cache-Control = "no-cache, must-revalidate"
