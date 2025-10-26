@@ -3,11 +3,21 @@
   "description": "EventEase ticket management app built with Twig templates",
   "type": "project",
   "require": {
-    "twig/twig": "^3.10"
+    "php": ">=7.2.5",
+    "twig/twig": "^2.15.0"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^5.4"
   },
   "autoload": {
     "psr-4": {
       "EventEase\\": "src/"
     }
-  }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "minimum-stability": "stable"
 }
