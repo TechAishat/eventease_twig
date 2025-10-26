@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Transcript Viewer</title>
+    <style>
+        .itv-container {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .transcript-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 15px;
+        }
+        
+        .transcript-line {
+            padding: 8px 12px;
+            margin: 4px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .transcript-line:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .transcript-line.active {
+            background-color: #e3f2fd;
+            border-left: 3px solid #2196f3;
+        }
+        
+        .timestamp {
+            color: #666;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+        
+        .search-container {
+            margin-bottom: 20px;
+        }
+        
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="itv-container">
+        <h1>Interactive Transcript Viewer</h1>
+        
+        <div class="video-container">
+            <!-- Replace with your video embed code -->
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search in transcript...">
+        </div>
+        
+        <div class="transcript-container" id="transcript">
+            <!-- Transcript will be populated by JavaScript -->
+            <div class="transcript-line" data-timestamp="0">
+                <span class="timestamp">00:00</span>
+                <span class="text">Welcome to the Interactive Transcript Viewer</span>
+            </div>
+            <!-- More transcript lines will be added here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('videoPlayer');
+            const transcript = document.getElementById('transcript');
+            const searchInput = document.getElementById('searchInput');
+            
+            // Sample transcript data - replace with your actual transcript
+            const transcriptData = [
+                { time: 0, text: "Welcome to the Interactive Transcript Viewer" },
+                { time: 5, text: "This is a sample transcript line" },
+                { time: 10, text: "Click on any line to jump to that point in the video" },
+                { time: 15, text: "You can also search through the transcript" },
+                { time: 20, text: "The active line will be highlighted as the video plays" }
+            ];
+            
+            // Format time in MM:SS format
+            function formatTime(seconds) {
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
+            
+            // Render transcript lines
+            function renderTranscript(transcriptData) {
+                transcript.innerHTML = '';
+                transcriptData.forEach(item => {
+                    const line = document.createElement('div');
+                    line.className = 'transcript-line';
+                    line.setAttribute('data-timestamp', item.time);
+                    line.innerHTML = `
+                        <span class="timestamp">${formatTime(item.time)}</span>
+                        <span class="text">${item.text}</span>
+                    `;
+                    
+                    // Click handler for transcript lines
+                    line.addEventListener('click', function() {
+                        const timestamp = parseFloat(this.getAttribute('data-timestamp'));
+                        if (video.contentWindow && video.contentWindow.postMessage) {
+                            video.contentWindow.postMessage({
+                                event: 'command',
+                                func: 'seekTo',
+                                args: [timestamp, true]
+                            }, '*');
+                        }
+                    });
+                    
+                    transcript.appendChild(line);
+                });
+            }
+            
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const lines = document.querySelectorAll('.transcript-line');
+                
+                lines.forEach(line => {
+                    const text = line.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        line.style.display = 'block';
+                    } else {
+                        line.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Update active line based on video time
+            function updateActiveLine() {
+                const currentTime = video.currentTime || 0;
+                const lines = document.querySelectorAll('.transcript-line');
+                
+                let activeLine = null;
+                
+                lines.forEach(line => {
+                    const timestamp = parseFloat(line.getAttribute('data-timestamp'));
+                    line.classList.remove('active');
+                    
+                    if (timestamp <= currentTime) {
+                        activeLine = line;
+                    }
+                });
+                
+                if (activeLine) {
+                    activeLine.classList.add('active');
+                    // Scroll to active line
+                    activeLine.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+            
+            // Initialize
+            renderTranscript(transcriptData);
+            
+            // Update active line periodically
+            setInterval(updateActiveLine, 1000);
+        });
+    </script>
+</body>
+</html>

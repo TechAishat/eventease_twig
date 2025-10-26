@@ -1,0 +1,37 @@
+# Dependency directories
+/vendor/
+/node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build files
+*.log
+*.lock
+
+# Development files
+.idea/
+.vscode/
+*.sublime-*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Composer files
+composer.phar
+composer-setup.php
+Composer-Setup.exe
+
+# Cache files
+/cache/
+/var/cache/
+
+# Logs
+/logs/
+*.log
+
+# Local development
+.htaccess

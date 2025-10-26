@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/index.php",
+      "use": "@vercel/php",
+      "config": {
+        "includeFiles": [
+          "templates/**",
+          "vendor/**"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php"
+    },
+    {
+      "src": "/(.*\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot))",
+      "dest": "/public/$1"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production"
+  },
+  "buildCommand": "composer install --no-dev --optimize-autoloader",
+  "outputDirectory": "public"
+}
