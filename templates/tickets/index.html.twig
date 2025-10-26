@@ -1,0 +1,126 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Tickets · EventEase{% endblock %}
+{% block page_id %}tickets{% endblock %}
+
+{% block content %}
+  <div class="container" style="padding-top: 3rem; padding-bottom: 4rem">
+    <header class="dashboard-header" style="align-items: flex-start">
+      <div class="dashboard-heading">
+        <span class="tag tag-open" aria-label="Ticket workspace">Ticket workspace</span>
+        <h1>Stay on top of every ticket</h1>
+        <span>Track, collaborate, and resolve tickets without switching tabs.</span>
+      </div>
+      <div class="ticket-filters" role="radiogroup" aria-label="Filter tickets by status" data-ticket-filters>
+        <button type="button" role="radio" data-filter-value="all" class="btn btn-secondary active" aria-checked="true">
+          All tickets
+        </button>
+        <button type="button" role="radio" data-filter-value="open" class="btn btn-secondary" aria-checked="false">
+          Open
+        </button>
+        <button type="button" role="radio" data-filter-value="in_progress" class="btn btn-secondary" aria-checked="false">
+          In Progress
+        </button>
+        <button type="button" role="radio" data-filter-value="closed" class="btn btn-secondary" aria-checked="false">
+          Closed
+        </button>
+      </div>
+    </header>
+
+    <section class="tablet-two-column" style="margin-top: 2rem">
+      <article class="card" style="display: grid; gap: 1.5rem">
+        <header>
+          <h2 style="margin: 0">Create a new ticket</h2>
+          <p style="color: #6c7391; margin-bottom: 0">
+            Provide a clear title and status. You can always edit details later.
+          </p>
+        </header>
+        <form id="create-ticket-form" class="form-grid" novalidate>
+          <div class="form-field">
+            <label for="ticket-title-new">Title *</label>
+            <input id="ticket-title-new" name="title" type="text" required maxlength="120" />
+            <span class="error-text" data-error-for="create-title"></span>
+          </div>
+          <div class="form-field">
+            <label for="ticket-status-new">Status *</label>
+            <select id="ticket-status-new" name="status" required>
+              <option value="open">Open</option>
+              <option value="in_progress">In Progress</option>
+              <option value="closed">Closed</option>
+            </select>
+            <span class="error-text" data-error-for="create-status"></span>
+          </div>
+          <div class="form-field">
+            <label for="ticket-priority-new">Priority (optional)</label>
+            <input id="ticket-priority-new" name="priority" type="text" maxlength="40" placeholder="e.g. High, Medium" />
+            <span class="error-text" data-error-for="create-priority"></span>
+          </div>
+          <div class="form-field">
+            <label for="ticket-description-new">Description (optional)</label>
+            <textarea id="ticket-description-new" name="description" rows="4" maxlength="500"></textarea>
+            <span class="error-text" data-error-for="create-description"></span>
+          </div>
+          <div class="hero-actions" style="justify-content: flex-start">
+            <button type="submit" class="btn">Create ticket</button>
+          </div>
+        </form>
+      </article>
+
+      <article class="card" style="display: grid; gap: 1.5rem">
+        <header>
+          <h2 style="margin: 0">Editing</h2>
+          <p style="color: #6c7391; margin-bottom: 0">
+            Select a ticket to edit its details. Changes are saved instantly.
+          </p>
+        </header>
+        <div class="empty-state" id="edit-empty-state">
+          <strong>No ticket selected</strong>
+          <p>Choose a ticket from the list to start editing.</p>
+        </div>
+        <form id="edit-ticket-form" class="form-grid" hidden novalidate>
+          <input type="hidden" name="id" />
+          <div class="form-field">
+            <label for="ticket-title-edit">Title *</label>
+            <input id="ticket-title-edit" name="title" type="text" required maxlength="120" />
+            <span class="error-text" data-error-for="edit-title"></span>
+          </div>
+          <div class="form-field">
+            <label for="ticket-status-edit">Status *</label>
+            <select id="ticket-status-edit" name="status" required>
+              <option value="open">Open</option>
+              <option value="in_progress">In Progress</option>
+              <option value="closed">Closed</option>
+            </select>
+            <span class="error-text" data-error-for="edit-status"></span>
+          </div>
+          <div class="form-field">
+            <label for="ticket-priority-edit">Priority (optional)</label>
+            <input id="ticket-priority-edit" name="priority" type="text" maxlength="40" />
+            <span class="error-text" data-error-for="edit-priority"></span>
+          </div>
+          <div class="form-field">
+            <label for="ticket-description-edit">Description (optional)</label>
+            <textarea id="ticket-description-edit" name="description" rows="5" maxlength="500"></textarea>
+            <span class="error-text" data-error-for="edit-description"></span>
+          </div>
+          <div class="hero-actions" style="justify-content: flex-start">
+            <button type="submit" class="btn">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-action="cancel-edit">Cancel</button>
+          </div>
+        </form>
+      </article>
+    </section>
+
+    <section style="margin-top: 3rem" aria-live="polite">
+      <header class="dashboard-heading" style="margin-bottom: 1.5rem">
+        <h2 style="margin: 0">Tickets (<span data-ticket-count>0</span>)</h2>
+        <span>Card-based view with quick actions and status tags.</span>
+      </header>
+      <div class="empty-state" data-ticket-empty>
+        <strong>No tickets found</strong>
+        <p>Try creating a new ticket or adjust the filters above.</p>
+      </div>
+      <div class="grid ticket-grid" data-ticket-list hidden></div>
+    </section>
+  </div>
+{% endblock %}

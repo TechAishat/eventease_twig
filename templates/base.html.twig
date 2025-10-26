@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" data-current-path="{{ currentPath }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block page_title %}EventEase Tickets{% endblock %}</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body class="page" data-page-id="{% block page_id %}{% endblock %}">
+    {% block header %}{% include 'partials/header.html.twig' %}{% endblock %}
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    {% block footer %}{% include 'partials/footer.html.twig' %}{% endblock %}
+    <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>

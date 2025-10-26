@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block content %}
+  <div class="form-shell">
+    <div class="form-card" role="form" aria-labelledby="form-title">
+      {% block form_card %}{% endblock %}
+    </div>
+  </div>
+{% endblock %}

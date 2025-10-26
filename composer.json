@@ -1,0 +1,13 @@
+{
+  "name": "eventease/twig-app",
+  "description": "EventEase ticket management app built with Twig templates",
+  "type": "project",
+  "require": {
+    "twig/twig": "^3.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "EventEase\\": "src/"
+    }
+  }
+}

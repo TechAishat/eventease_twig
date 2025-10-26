@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block page_id %}landing{% endblock %}
+
+{% block content %}
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="hero-title">Unlock Seamless Access With EventEase</h1>
+        <p class="hero-description hero-description--tight">
+          Unlock Seamless Access
+          Experience hassle-free user authentication and top-notch security. 
+          Our innovative session management ensures a smooth start for everyone.
+        </p>
+        <div class="hero-actions">
+          <a href="/auth/signup" class="btn">Get Started</a>
+          <a href="/auth/login" class="btn btn-secondary">Login</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-card card">
+          <h2 style="margin: 0">Live Ticket Overview</h2>
+          <div class="grid stats-grid">
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem">128</strong>
+              <span>Total Tickets</span>
+            </div>
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem; color: #2f8f46">52</strong>
+              <span>Open</span>
+            </div>
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem; color: #a86a08">34</strong>
+              <span>In Progress</span>
+            </div>
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem; color: #495057">42</strong>
+              <span>Closed</span>
+            </div>
+          </div>
+          <p style="color: #6c7391">
+            Collaborate, track status shifts, and keep stakeholders in the loop effortlessly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="features-title">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="features-title" class="section-title">Why teams choose EventEase</h2>
+        <p style="color: #4a5272">Experience seamless access with EventEase, tailored for your team's needs.</p>
+      </div>
+      <div class="features-grid">
+        <article class="card feature-card">
+          <span class="feature-icon" aria-hidden="true">⚡</span>
+          <h3>Streamlined User Access</h3>
+          <p>Quickly authenticate users and maintain security with efficient session management techniques.</p>
+        </article>
+        <article class="card feature-card">
+          <span class="feature-icon" aria-hidden="true">📊</span>
+          <h3>Comprehensive Analytics Dashboard</h3>
+          <p>Track the total number of tickets, including open and resolved issues, with dynamic updates for immediate insights.</p>
+        </article>
+        <article class="card feature-card">
+          <span class="feature-icon" aria-hidden="true">🛠️</span>
+          <h3>Enhanced Ticket Management</h3>
+          <p>Effortlessly create, edit, or close tickets with user-friendly validation prompts and timely notifications.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'partials/auth_layout.html.twig' %}
+
+{% block page_title %}Login · EventEase{% endblock %}
+{% block page_id %}login{% endblock %}
+
+{% block form_card %}
+  <div style="display: grid; gap: 0.5rem">
+    <span class="tag tag-open" style="justify-self: flex-start">Access Portal</span>
+    <h1 id="form-title">Login to EventEase</h1>
+    <p style="color: #4a5272">Manage every ticket with confidence.</p>
+  </div>
+  <form id="login-form" class="form-grid" novalidate>
+    <div class="form-field">
+      <label for="login-email">Email *</label>
+      <input id="login-email" name="email" type="email" autocomplete="email" required />
+      <span class="error-text" data-error-for="email"></span>
+    </div>
+    <div class="form-field">
+      <label for="login-password">Password *</label>
+      <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+      <span class="error-text" data-error-for="password"></span>
+    </div>
+    <button type="submit" class="btn" data-loading-text="Signing in…">Sign in</button>
+  </form>
+  <p class="auth-switch">
+    New to EventEase? <a href="/auth/signup">Create an account</a>
+  </p>
+{% endblock %}
