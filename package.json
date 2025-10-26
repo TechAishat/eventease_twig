@@ -1,0 +1,17 @@
+{
+  "name": "eventease-twig",
+  "version": "1.0.0",
+  "description": "EventEase Twig Template",
+  "main": "index.js",
+  "scripts": {
+    "build": "composer install --no-dev && php compile.php",
+    "dev": "php -S localhost:8000 -t public",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/functions": "^1.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.0.0"
+  }
+}

@@ -10,6 +10,8 @@
 # Build files
 *.log
 *.lock
+/dist/
+/.netlify/
 
 # Development files
 .idea/
@@ -35,3 +37,28 @@ Composer-Setup.exe
 
 # Local development
 .htaccess
+
+# Netlify
+.netlify/
+
+# Build output
+public/build/
+public/hot
+
+# IDE specific files
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Local environment
+.phpunit.result.cache
+
+# Debug
+/debug/
+
+# Local Netlify folder
+.netlify/
+
+# Local env files
+.env.local
+.env.*.local

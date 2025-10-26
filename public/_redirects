@@ -1,1 +1,2 @@
-/* /.netlify/functions/handler 200
+# Handle all requests with index.php
+/*    /index.php   200
