@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-current-path="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard · EventEase</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body class="page" data-page-id="dashboard">
+    <header class="header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="EventEase home">
+      <span class="brand-icon" aria-hidden="true">EE</span>
+      EventEase Tickets
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/" class="">Home</a>
+      <a href="/dashboard" class="" data-requires-auth>Dashboard</a>
+      <a href="/tickets" class="" data-requires-auth>Tickets</a>
+      <button type="button" class="btn btn-secondary" data-action="logout" hidden>Logout</button>
+      <a href="/auth/login" class="btn btn-secondary" data-auth-link="login">Login</a>
+    </nav>
+  </div>
+</header>
+    <main>
+        <div class="container" style="padding-top: 3rem; padding-bottom: 4rem">
+    <header class="dashboard-header">
+      <div class="dashboard-heading">
+        <span class="tag tag-open" aria-label="Logged in user">Welcome back</span>
+        <h1>Hi <span data-dashboard="firstName">there</span>, here&apos;s your control center</h1>
+        <span>Manage tickets, track progress, and collaborate with your team in real time.</span>
+      </div>
+      <div class="hero-actions" style="justify-content: flex-end">
+        <a href="/tickets" class="btn">Manage tickets</a>
+        <a href="/tickets" class="btn btn-secondary">View board</a>
+      </div>
+    </header>
+
+    <section class="grid stats-grid" aria-label="Ticket statistics">
+      <article class="card" role="status">
+      
+        <h2 style="margin-top: 0">Total Tickets</h2>
+        <strong style="font-size: 2.5rem" data-dashboard="stat-total">0</strong>
+        <p style="color: #6c7391">All tickets across all status.</p>
+      </article>
+      <article class="card" role="status">
+        <h2 style="margin-top: 0">Open tickets</h2>
+        <strong style="font-size: 2.5rem; color: #2f8f46" data-dashboard="stat-open">0</strong>
+        <p style="color: #6c7391">Items that require immediate attention.</p>
+      </article>
+      <article class="card" role="status">
+        <h2 style="margin-top: 0">In progress</h2>
+        <strong style="font-size: 2.5rem; color: #a86a08" data-dashboard="stat-in_progress">0</strong>
+        <p style="color: #6c7391">Currently being worked on.</p>
+      </article>
+      <article class="card" role="status">
+        <h2 style="margin-top: 0">Resolved</h2>
+        <strong style="font-size: 2.5rem; color: #495057" data-dashboard="stat-closed">0</strong>
+        <p style="color: #6c7391">Completed tickets.</p>
+      </article>
+    </section>
+
+    <section class="tablet-two-column" style="margin-top: 3rem">
+      <article class="card" style="display: grid; gap: 1.5rem">
+        <header>
+          <h2 style="margin: 0">Progress overview</h2>
+          <p style="color: #6c7391; margin-bottom: 0">
+            Stay ahead with a quick snapshot of how your tickets are performing.
+          </p>
+        </header>
+        <div
+          role="img"
+          aria-live="polite"
+          data-dashboard="progress"
+          style="
+            background: rgba(79, 93, 255, 0.08);
+            border-radius: 24px;
+            padding: 2rem;
+            display: grid;
+            place-items: center;
+          "
+        >
+          <div
+            data-dashboard="progress-circle"
+            style="
+              width: 160px;
+              height: 160px;
+              border-radius: 50%;
+              display: grid;
+              place-items: center;
+              color: #4f5dff;
+              font-weight: 700;
+              font-size: 1.75rem;
+            "
+          >
+            0%
+          </div>
+        </div>
+        <ul style="margin: 0; padding-left: 1.25rem; color: #4a5272">
+          <li>Daily Ticket Management: Make sure open tickets are reviewed each day.</li>
+          <li>Celebrate Success: Acknowledge and celebrate the resolution of tickets</li>
+          <li>Maintain Accuracy: Regularly update ticket statuses to ensure clarity.</li>
+        </ul>
+      </article>
+
+      <article class="card" style="display: grid; gap: 1.25rem">
+        <header>
+          <h2 style="margin: 0">Recent tickets</h2>
+          <p style="color: #6c7391; margin-bottom: 0">
+            A quick view of what was recently created.
+          </p>
+        </header>
+        <div class="empty-state" data-dashboard="recent-empty">
+          <strong>No tickets yet</strong>
+          <p>Once you start creating tickets, they&apos;ll appear here.</p>
+        </div>
+        <ul
+          style="list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem"
+          data-dashboard="recent-list"
+          hidden
+        ></ul>
+        <a href="/tickets" class="btn btn-secondary" style="justify-self: flex-start">Go to tickets</a>
+      </article>
+    </section>
+  </div>
+    </main>
+    <footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-icon" aria-hidden="true">EE</span>
+        <div>
+          <strong>EventEase Tickets</strong>
+          
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Product</h3>
+      <ul>
+        <li>Ticket Dashboard</li>
+        <li> Ticket Management</li>
+        <li>Real-time Collaboration</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Support</h3>
+      <ul>
+        <li>Help Center</li>
+        <li>Documentation</li>
+        <li>Community</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>Email: support@eventease.dev</li>
+        <li>Phone: +234 800 123 4567</li>
+        <li>Mon - Fri: 8:00am - 6:00pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 EventEase. All rights reserved.</div>
+</footer>
+    <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>

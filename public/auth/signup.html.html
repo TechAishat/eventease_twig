@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-current-path="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account · EventEase</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body class="page" data-page-id="signup">
+        <main>
+        <div class="form-shell">
+    <div class="form-card" role="form" aria-labelledby="form-title">
+        <div style="display: grid; gap: 0.5rem">
+    <span class="tag tag-in_progress" style="justify-self: flex-start">Start your journey</span>
+    <h1 id="form-title">Create an EventEase account</h1>
+    <p style="color: #4a5272">Organize tickets with clarity and speed.</p>
+  </div>
+  <form id="signup-form" class="form-grid" novalidate>
+    <div class="form-field">
+      <label for="signup-name">Full name *</label>
+      <input id="signup-name" name="name" type="text" autocomplete="name" required />
+      <span class="error-text" data-error-for="name"></span>
+    </div>
+    <div class="form-field">
+      <label for="signup-email">Email *</label>
+      <input id="signup-email" name="email" type="email" autocomplete="email" required />
+      <span class="error-text" data-error-for="email"></span>
+    </div>
+    <div class="form-field">
+      <label for="signup-password">Password *</label>
+      <input id="signup-password" name="password" type="password" autocomplete="new-password" required />
+      <span class="error-text" data-error-for="password"></span>
+    </div>
+    <div class="form-field">
+      <label for="signup-confirm">Confirm password *</label>
+      <input id="signup-confirm" name="confirmPassword" type="password" required />
+      <span class="error-text" data-error-for="confirmPassword"></span>
+    </div>
+    <button type="submit" class="btn" data-loading-text="Creating account…">Create account</button>
+  </form>
+  <p class="auth-switch">
+    Already have an account? <a href="/auth/login">Sign in</a>
+  </p>
+    </div>
+  </div>
+    </main>
+        <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>

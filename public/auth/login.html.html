@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" data-current-path="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login · EventEase</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body class="page" data-page-id="login">
+        <main>
+        <div class="form-shell">
+    <div class="form-card" role="form" aria-labelledby="form-title">
+        <div style="display: grid; gap: 0.5rem">
+    <span class="tag tag-open" style="justify-self: flex-start">Access Portal</span>
+    <h1 id="form-title">Login to EventEase</h1>
+    <p style="color: #4a5272">Manage every ticket with confidence.</p>
+  </div>
+  <form id="login-form" class="form-grid" novalidate>
+    <div class="form-field">
+      <label for="login-email">Email *</label>
+      <input id="login-email" name="email" type="email" autocomplete="email" required />
+      <span class="error-text" data-error-for="email"></span>
+    </div>
+    <div class="form-field">
+      <label for="login-password">Password *</label>
+      <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+      <span class="error-text" data-error-for="password"></span>
+    </div>
+    <button type="submit" class="btn" data-loading-text="Signing in…">Sign in</button>
+  </form>
+  <p class="auth-switch">
+    New to EventEase? <a href="/auth/signup">Create an account</a>
+  </p>
+    </div>
+  </div>
+    </main>
+        <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>

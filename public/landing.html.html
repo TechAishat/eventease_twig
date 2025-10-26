@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-current-path="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventEase Tickets</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body class="page" data-page-id="landing">
+    <header class="header" role="banner">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="EventEase home">
+      <span class="brand-icon" aria-hidden="true">EE</span>
+      EventEase Tickets
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="/" class="">Home</a>
+      <a href="/dashboard" class="" data-requires-auth>Dashboard</a>
+      <a href="/tickets" class="" data-requires-auth>Tickets</a>
+      <button type="button" class="btn btn-secondary" data-action="logout" hidden>Logout</button>
+      <a href="/auth/login" class="btn btn-secondary" data-auth-link="login">Login</a>
+    </nav>
+  </div>
+</header>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="hero-title">Unlock Seamless Access With EventEase</h1>
+        <p class="hero-description hero-description--tight">
+          Unlock Seamless Access
+          Experience hassle-free user authentication and top-notch security. 
+          Our innovative session management ensures a smooth start for everyone.
+        </p>
+        <div class="hero-actions">
+          <a href="/auth/signup" class="btn">Get Started</a>
+          <a href="/auth/login" class="btn btn-secondary">Login</a>
+        </div>
+      </div>
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-card card">
+          <h2 style="margin: 0">Live Ticket Overview</h2>
+          <div class="grid stats-grid">
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem">128</strong>
+              <span>Total Tickets</span>
+            </div>
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem; color: #2f8f46">52</strong>
+              <span>Open</span>
+            </div>
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem; color: #a86a08">34</strong>
+              <span>In Progress</span>
+            </div>
+            <div class="card-soft" style="text-align: center">
+              <strong style="font-size: 2.2rem; color: #495057">42</strong>
+              <span>Closed</span>
+            </div>
+          </div>
+          <p style="color: #6c7391">
+            Collaborate, track status shifts, and keep stakeholders in the loop effortlessly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="features-title">
+    <div class="container">
+      <div class="section-header">
+        <h2 id="features-title" class="section-title">Why teams choose EventEase</h2>
+        <p style="color: #4a5272">Experience seamless access with EventEase, tailored for your team's needs.</p>
+      </div>
+      <div class="features-grid">
+        <article class="card feature-card">
+          <span class="feature-icon" aria-hidden="true">⚡</span>
+          <h3>Streamlined User Access</h3>
+          <p>Quickly authenticate users and maintain security with efficient session management techniques.</p>
+        </article>
+        <article class="card feature-card">
+          <span class="feature-icon" aria-hidden="true">📊</span>
+          <h3>Comprehensive Analytics Dashboard</h3>
+          <p>Track the total number of tickets, including open and resolved issues, with dynamic updates for immediate insights.</p>
+        </article>
+        <article class="card feature-card">
+          <span class="feature-icon" aria-hidden="true">🛠️</span>
+          <h3>Enhanced Ticket Management</h3>
+          <p>Effortlessly create, edit, or close tickets with user-friendly validation prompts and timely notifications.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+    </main>
+    <footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-icon" aria-hidden="true">EE</span>
+        <div>
+          <strong>EventEase Tickets</strong>
+          
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>Product</h3>
+      <ul>
+        <li>Ticket Dashboard</li>
+        <li> Ticket Management</li>
+        <li>Real-time Collaboration</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Support</h3>
+      <ul>
+        <li>Help Center</li>
+        <li>Documentation</li>
+        <li>Community</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>Email: support@eventease.dev</li>
+        <li>Phone: +234 800 123 4567</li>
+        <li>Mon - Fri: 8:00am - 6:00pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2025 EventEase. All rights reserved.</div>
+</footer>
+    <div id="toast-root" aria-live="polite" aria-atomic="true"></div>
+    <script type="module" src="/scripts/main.js"></script>
+  </body>
+</html>
