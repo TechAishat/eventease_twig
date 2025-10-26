@@ -1,14 +1,14 @@
 [build]
   command = "composer install --no-dev"
   publish = "public"
-  functions = "netlify/functions"
 
 [build.environment]
-  PHP_VERSION = "8.0"
+  PHP_VERSION = "8.1"
 
+# Handle client-side routing
 [[redirects]]
   from = "/*"
-  to = "/.netlify/functions/handler"
+  to = "/index.php"
   status = 200
 
 [[headers]]
