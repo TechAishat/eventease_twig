@@ -1,0 +1,26 @@
+[build]
+  command = "composer install --no-dev"
+  publish = "public"
+  functions = "netlify/functions"
+
+[build.environment]
+  PHP_VERSION = "8.0"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/handler"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+[functions]
+  node_bundler = "esbuild"
